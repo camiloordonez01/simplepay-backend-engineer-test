@@ -17,6 +17,7 @@
         "class-validator": "^0.14.0",
         "cors": "^2.8.5",
         "db-migrate": "^0.11.14",
+        "db-migrate-mysql": "^2.3.2",
         "dotenv": "^14.3.2",
         "express": "^4.17.2",
         "joi": "^17.6.0",
