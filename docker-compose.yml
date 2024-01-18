@@ -1,0 +1,53 @@
+version: '3.2'
+
+services:
+  db:
+    container_name: database_simplepay_test
+    image: 'mysql:latest'
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: 1234
+      MYSQL_DATABASE: simplepay_db
+    volumes: 
+      - mysql_data:/var/lib/mysql/data
+    ports:
+      - 3306:3306
+  web:
+    container_name: app_simplepay_test
+    build:
+      context: .
+      dockerfile: web.dockerfile
+    env_file: ./.env.local
+    depends_on:
+      - db
+    volumes:
+      - .:/app/
+      - /app/node_modules
+    ports:
+      - "3000:3000"
+      - 127.0.0.1:9223:9223
+    environment:
+      - HOST_DB=database_simplepay_test
+    command: npm run start
+  migration:
+    build:
+      context: .
+      dockerfile: web.dockerfile
+    command:
+      [
+        "./wait-for-it/wait-for-it.sh",
+        "db:3306",
+        "--",
+        "npm",
+        "run",
+        "migrate"
+      ]
+    links:
+      - db
+    depends_on:
+      - db
+    env_file: ./.env.local
+    environment:
+      - HOST_DB=database_simplepay_test
+volumes:
+  mysql_data: null

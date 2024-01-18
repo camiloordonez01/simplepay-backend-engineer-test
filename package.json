@@ -1,0 +1,48 @@
+{
+    "version": "0.0.1",
+    "main": "index.js",
+    "license": "MIT",
+    "scripts": {
+        "start": "nodemon ./local.ts",
+        "build": "npx tsc -p .",
+        "format": "prettier --write \"**/*.+(js|ts|json)\"",
+        "lint": "eslint --fix --ext \"**/*.{ts,tsx}\"",
+        "test": "jest --coverage --silent --verbose",
+        "test:log": "jest --coverage --verbose",
+        "clean": "rm -rf yarn.lock && rm -rf node_modules",
+        "reinstall": "rm -rf yarn.lock && rm -rf node_modules && yarn install",
+        "migrate": "./node_modules/.bin/db-migrate up"
+    },
+    "dependencies": {
+        "class-validator": "^0.14.0",
+        "cors": "^2.8.5",
+        "db-migrate": "^0.11.14",
+        "dotenv": "^14.3.2",
+        "express": "^4.17.2",
+        "joi": "^17.6.0",
+        "mysql2": "^2.3.3",
+        "node-mocks-http": "^1.14.1",
+        "reflect-metadata": "^0.1.13",
+        "typeorm": "^0.3.12",
+        "winston": "^3.5.0"
+    },
+    "devDependencies": {
+        "@jest/globals": "^29.7.0",
+        "@types/cors": "^2.8.13",
+        "@types/express": "^4.17.17",
+        "@types/node": "^18.13.0",
+        "@typescript-eslint/eslint-plugin": "^5.52.0",
+        "@typescript-eslint/parser": "^5.52.0",
+        "eslint": "^8.8.0",
+        "eslint-plugin-import": "^2.27.5",
+        "eslint-plugin-jest": "^26.0.0",
+        "eslint-plugin-n": "^15.6.1",
+        "eslint-plugin-prettier": "^4.2.1",
+        "jest": "^29.7.0",
+        "nodemon": "^2.0.15",
+        "prettier": "^2.5.1",
+        "ts-jest": "^29.1.1",
+        "ts-node": "^10.9.1",
+        "typescript": "^4.9.5"
+    }
+}

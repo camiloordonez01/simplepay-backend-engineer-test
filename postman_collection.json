@@ -1,0 +1,57 @@
+{
+	"info": {
+		"_postman_id": "655e40cf-b732-41f5-893a-b5b26a59aefb",
+		"name": "simplepay",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "32426513"
+	},
+	"item": [
+		{
+			"name": "http://localhost:3000/validate-anomaly",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"dna\": [[\"B\", \"B\", \"C\", \"D\", \"E\"],[\"A\", \"A\", \"A\", \"D\", \"D\"],[\"B\", \"A\", \"D\", \"A\", \"E\"],[\"A\", \"B\", \"C\", \"D\", \"A\"],[\"B\", \"A\", \"C\", \"D\", \"E\"]]}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/validate-anomaly",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"validate-anomaly"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/stats",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/stats",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"stats"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
