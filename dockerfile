@@ -3,7 +3,7 @@ WORKDIR /app
 COPY package*.json ./
 
 RUN npm install
-RUN npm install db-migrate-pg
+RUN npm install db-migrate-mysql
 COPY . .
 
 # This is our secret sauce
